@@ -4,11 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- bootstrap CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
   <title>Emmei's Weather App</title>
 </head>
 
 <body>
+  <div class="container my-5 mx-auto">
+    <h1 class="text-muted text-center my-4">EmmeiWeather</h1>
 
+    <form class="location text-muted text-center my-4">
+      <label for="city">Enter a location for weather information</label>
+      <input type="text" name="city" class="form-control py-4">
+    </form>
+
+    <div class="card shadow-lg rounded">
+      <img src="https://via.placeholder.com/400x300" alt="image">
+    </div>
+  </div>
+
+  <script src="forecast.js"></script>
+  <script src="app.js"></script>
 </body>
 
 </html>
