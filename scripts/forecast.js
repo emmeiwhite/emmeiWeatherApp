@@ -1,4 +1,4 @@
-document.cookie = "promo_shown=1;SameSite=Lax"
+document.cookie = "SameSite=Lax"
 const key = 'pDBJM0EqZeAspCIO97SLAROzKie3mh3s';
 
 // get weather information
