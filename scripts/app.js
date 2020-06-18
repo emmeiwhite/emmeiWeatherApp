@@ -8,8 +8,23 @@ const updateUI = (data) => {
     cityLocation.classList.remove('d-none');
   }
 
+  console.log(data);
   const { cityDets, weather } = data;
   const details = document.querySelector('.details');
+
+  // Updating the Image
+  const time = document.querySelector('img.time');
+  const icon = document.querySelector('.icon');
+
+  console.log(weather.IsDayTime);
+  let timeSrc = null;
+  let iconSrc = null;
+  weather[0].IsDayTime ? timeSrc = './../img/day.svg' : timeSrc = './../img/night.svg';
+
+  time.setAttribute('src', timeSrc);
+
+  iconSrc = `./../img/icons/${weather[0].WeatherIcon}.svg`;
+  icon.innerHTML = `<img src=${iconSrc} alt="icon">`;
 
   details.innerHTML = `
     <h5 class="my-3">${cityDets.EnglishName}</h5>
