@@ -8,7 +8,6 @@ const updateUI = (data) => {
     cityLocation.classList.remove('d-none');
   }
 
-  console.log(data);
   const { cityDets, weather } = data;
   const details = document.querySelector('.details');
 
@@ -34,6 +33,7 @@ const updateUI = (data) => {
       <span>&deg;C</span>
     </div>`;
 };
+
 // get all city details
 const updateCity = async (city) => {
   const cityDets = await getCity(city);
@@ -49,7 +49,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 
 
-  const city = form.city.value;
+  const city = form.city.value.trim();
   form.reset();
 
   updateCity(city)
@@ -58,5 +58,20 @@ form.addEventListener('submit', (e) => {
     })
     .catch(err => {
       console.log(err.message);
-    })
+    });
+
+  localStorage.setItem('city', city);
 });
+
+
+/** --- SETTING UP THE LOCAL STORAGE --- */
+
+if (localStorage.getItem("city")) {
+  updateCity(localStorage.getItem("city"))
+    .then(data => {
+      updateUI(data);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+}
