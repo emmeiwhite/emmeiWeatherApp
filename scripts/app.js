@@ -50,7 +50,8 @@ form.addEventListener('submit', (e) => {
 
 
   const city = form.city.value.trim();
-  form.reset();
+
+  window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
 
   updateCity(city)
     .then(data => {
