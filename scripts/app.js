@@ -53,7 +53,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 
 
-  const city = form.city.value.trim();
+  const city = form.city.value.trim().toLowerCase();
 
   updateCity(city)
     .then(data => {
