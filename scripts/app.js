@@ -32,11 +32,15 @@ const updateUI = (data) => {
       <span>${weather[0].Temperature.Metric.Value}</span>
       <span>&deg;C</span>
     </div>`;
+
+  window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
 };
 
 // get all city details
 const updateCity = async (city) => {
   const cityDets = await getCity(city);
+
+  if (cityDets.Key === undefined) alert("Enter a valid city");
   const weather = await getWeather(cityDets.Key);
 
   return {
@@ -50,8 +54,6 @@ form.addEventListener('submit', (e) => {
 
 
   const city = form.city.value.trim();
-
-  window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
 
   updateCity(city)
     .then(data => {
