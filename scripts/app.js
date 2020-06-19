@@ -2,6 +2,7 @@ const form = document.querySelector('.location');
 
 // Updating the UI
 const updateUI = (data) => {
+
   const cityLocation = document.querySelector('.change-location');
 
   if (cityLocation.classList.contains('d-none')) {
@@ -40,7 +41,6 @@ const updateUI = (data) => {
 const updateCity = async (city) => {
   const cityDets = await getCity(city);
 
-  if (cityDets.Key === undefined) alert("Enter a valid city");
   const weather = await getWeather(cityDets.Key);
 
   return {
@@ -60,6 +60,7 @@ form.addEventListener('submit', (e) => {
       updateUI(data);
     })
     .catch(err => {
+      alert("Enter a valid city");
       console.log(err.message);
     });
 
