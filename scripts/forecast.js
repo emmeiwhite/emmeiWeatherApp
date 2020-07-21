@@ -1,5 +1,4 @@
-document.cookie = "SameSite=Lax"
-const key = 'fgy6xY9xhcjWUU79btpuqoQtGkR3YAcA';
+const key = 'KaiQvEGuF8rmrvrYf6eOOtcoAOli7FeE';
 
 // get weather information
 const getWeather = async (id) => {
